@@ -14,7 +14,7 @@
   {"id": "sterea", "proj": "+proj=sterea +ellps=bessel +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000", "lon": [-10, 20], "lat": [40, 65], "step": 5},
   {"id": "somerc", "proj": "+proj=somerc +ellps=bessel +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000", "lon": [-10, 25], "lat": [35, 60], "step": 5},
   {"id": "laea", "proj": "+proj=laea +ellps=GRS80 +lat_0=52 +lon_0=10", "lon": [-60, 80], "lat": [10, 90], "step": 10},
-  {"id": "laea (polar)", "proj": "+proj=laea +ellps=WGS84 +lat_0=-90", "lat": [-90, -30], "step": 10, "note": "Known: at the pole proj4rs is 0.19 m from the origin, PROJ gives exactly 0.", "expect": "differs"},
+  {"id": "laea (polar)", "proj": "+proj=laea +ellps=WGS84 +lat_0=-90", "lat": [-90, -30], "step": 10},
   {"id": "moll", "proj": "+proj=moll +R=6371000", "note": "Known: differences only at the poles, where PROJ's own Newton iteration stops early (PROJ x = -112 m at lon -180 lat -90, proj4rs 0).", "expect": "differs"},
   {"id": "wag4", "proj": "+proj=wag4 +R=6371000"},
   {"id": "wag5", "proj": "+proj=wag5 +R=6371000"},
@@ -24,7 +24,7 @@
   {"id": "aeqd (polar)", "proj": "+proj=aeqd +ellps=WGS84 +lat_0=90", "lat": [0, 90], "step": 15},
   {"id": "krovak", "proj": "+proj=krovak +ellps=bessel", "lon": [5, 30], "lat": [44, 56], "step": 2},
   {"id": "mill", "proj": "+proj=mill +R=6371000"},
-  {"id": "cea", "proj": "+proj=cea +ellps=WGS84 +lat_ts=30", "note": "Known: inverse within 1.2e-8 deg away from the poles, 1.7e-6 deg at the poles (proj4rs authalic latitude series).", "expect": "differs"},
+  {"id": "cea", "proj": "+proj=cea +ellps=WGS84 +lat_ts=30"},
   {"id": "poly", "proj": "+proj=poly +ellps=WGS84 +lon_0=-96", "lon": [-150, -40], "lat": [0, 80], "step": 10},
   {"id": "ortho", "proj": "+proj=ortho +ellps=WGS84 +lat_0=-42 +lon_0=147", "note": "Known: proj4rs ellipsoidal inverse returns NaN for the south pole with lat_0=-42.", "expect": "differs"},
   {"id": "gnom", "proj": "+proj=gnom +R=6371000 +lat_0=-90", "lat": [-90, -30], "step": 10},
@@ -35,5 +35,5 @@
   {"id": "cass", "proj": "+proj=cass +ellps=WGS84 +lat_0=-42 +lon_0=147", "lon": [132, 162], "lat": [-60, -20], "step": 5},
   {"id": "eqdc", "proj": "+proj=eqdc +ellps=GRS80 +lat_0=40 +lon_0=-96 +lat_1=20 +lat_2=60", "lon": [-150, -40], "lat": [0, 80], "step": 10},
   {"id": "robin", "proj": "+proj=robin +R=6371000", "note": "Known: proj4rs inverse returns NaN at the map edge, lon +-180 lat +-60.", "expect": "differs"},
-  {"id": "eqearth", "proj": "+proj=eqearth +ellps=WGS84", "note": "Known: inverse within 1.2e-8 deg away from the poles, 6.6e-6 deg at the poles (proj4rs authalic latitude series).", "expect": "differs"}
+  {"id": "eqearth", "proj": "+proj=eqearth +ellps=WGS84", "note": "Known: inverse 6.6e-6 deg at the poles only; elsewhere within 1.5e-14 deg.", "expect": "differs"}
 ]
